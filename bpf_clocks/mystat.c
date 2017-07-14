@@ -22,4 +22,6 @@ int main() {
 		long long unsigned int ts2 = tp2.tv_sec * 1000 * 1000 * 1000 + tp2.tv_nsec;
 		printf("%llu %llu %s\n", ts1, ts2, pathname);
 	}
+
+	return 0;
 }
