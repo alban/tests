@@ -1,7 +1,7 @@
-all: stat
+all: mystat
 
-stat: stat.c
-	gcc -o stat -Wall stat.c
+mystat: mystat.c
+	gcc -o mystat -Wall mystat.c
 
 clean:
-	rm -f stat
+	rm -f mystat

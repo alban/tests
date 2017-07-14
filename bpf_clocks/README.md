@@ -1,18 +1,19 @@
-In a shell:
+## bpf clocks
+
+In 3 different shells:
+
 ```
-$ sudo ./timestamp.py |awk '{print $7 ";" $9}'|grep /foo_100_
-95560362623493;/foo_100_
+sudo touch /foo_100_
+
+sudo ./timestamp.py |grep -E 'mystat-.*(/foo_100_|kretprobe)'
+sudo ./rettimestamp.py | grep -E 'mystat-.*(/foo_100_|kretprobe)'
+./mystat |grep /foo_100_
 ```
 
-In another shell:
+Results: it is ordered correctly
 ```
-$ ./stat |grep /foo_100_
-95560362622753 95560362630612 /foo_100_
-```
-
-It is ordered correctly:
-```
-95560362622753
-95560362623493
-95560362630612
+98726105275230 userspace clock 1	diff:
+98726105276644 kprobe			 1414ns
+98726105294073 kretprobe		17429ns
+98726105299573 userspace clock 2	 5500ns
 ```
