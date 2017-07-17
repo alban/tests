@@ -6,13 +6,14 @@
 #include <time.h>
 
 int main() {
-	int i = 1;
-	while (i++) {
+	int i;
+	for (i = 0; i < 200000; i++) {
 		char pathname[1024];
 		struct stat buf;
 		struct timespec tp1, tp2;
 
-		snprintf(pathname, sizeof(pathname), "/foo_%d_", i);
+		//snprintf(pathname, sizeof(pathname), "/foo_%d_", i);
+		snprintf(pathname, sizeof(pathname), "/etc/hosts/_foo_%d_", i); // ENOTDIR
 
 		clock_gettime(CLOCK_MONOTONIC, &tp1);
 		lstat(pathname, &buf);

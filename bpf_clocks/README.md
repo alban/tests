@@ -25,3 +25,10 @@ On GCE:
 7741725442317 kretprobe			5632ns
 7741725442887 userspace clock 2		 570ns
 ```
+To run plenty of tests:
+
+```
+sudo ./timestamp.py |grep --line-buffered -E 'mystat-.*(/etc/hosts/_|kretprobe)' > /var/tmp/mytrace.1.txt
+sudo ./rettimestamp.py | grep --line-buffered -E 'mystat-.*(/etc/hosts/_|kretprobe)' > /var/tmp/mytrace.2.txt
+./mystat  > /var/tmp/mytrace.3.txt
+```
