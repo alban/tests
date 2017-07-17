@@ -17,3 +17,11 @@ Results: it is ordered correctly
 98726105294073 kretprobe		17429ns
 98726105299573 userspace clock 2	 5500ns
 ```
+
+On GCE:
+```
+7741725436455 userspace clock 1		diff:
+7741725436685 kprobe			 230ns
+7741725442317 kretprobe			5632ns
+7741725442887 userspace clock 2		 570ns
+```
